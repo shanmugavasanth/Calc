@@ -1,5 +1,5 @@
 # Ex.08 Design of a Standard Calculator
-## Date:13.12.2023
+## Date:18.12.2023
 
 ## AIM:
 To design a web application for a standard calculator with minimum five operations.
@@ -26,112 +26,146 @@ Publish the website in the given URL.
 
 ## PROGRAM :
 ```
+calculator.html
 
 <html>
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
     <title> Calculator </title>
-    <style type="text/css">
-        *{
-            margin: 0;
-            padding: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            box-sizing: border-box;
-        }
-        .container {
-            width: 100%;
-            height: 100vh;
-            background: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .calculator {
-            background: #3a4452;
-            padding: 20px;
-            border-radius: 10px;
-        }
-        .calculator form input {
-            border: 0;
-            outline: 0;
-            width: 60px;
-            height: 60px;
-            border-radius: 10px;
-            box-shadow: -8px -8px 15px rgba(180, 180, 180, 0.1),  5px 5px 15px rgba(0, 0, 0, 0.2);
-            background: transparent;
-            font-size: 20px;
-            color: white;
-            cursor: pointer;
-            margin: 10px;
-        }
-        form .enter {
-            display: flex;
-            justify-content: flex-end;
-            margin: 20px 0;
-        }
-        form .enter input {
-            text-align: right;
-            flex: 1;
-            font-size: 45px;
-            box-shadow: none;
-            border: 1px solid cyan;
-            padding: 20px;
-        }
-        form input.equal {
-            width: 145px;
-        }
-        form input.color {
-            color: cyan;
-        }
-    </style>
 </head>
 <body>
-    <div class="container">  
+    <div class="container">
+        <h1>Calculator</h1>
         <div class="calculator">
-            <form>
-                <div class="enter">
-                    <input type="text" name="display">
-                </div>
-                <div>
-                    <input type="button" onclick="display.value=''" value="AC" class="color">
-                    <input type="button" onclick="display.value=display.value.toString().slice(0,-1)" value="Del" class="color">
-                    <input type="button" onclick="display.value+='%'" value="%" class="color">
-                    <input type="button" onclick="display.value+='/'" value="/" class="color">
-                </div>
-                <div>
-                    <input type="button" onclick="display.value+='7'" value="7">
-                    <input type="button" onclick="display.value+='8'" value="8">
-                    <input type="button" onclick="display.value+='9'" value="9">
-                    <input type="button" onclick="display.value+='*'" value="*" class="color">
-                </div>
-                <div>
-                    <input type="button" onclick="display.value+='4'" value="4">
-                    <input type="button" onclick="display.value+='5'" value="5">
-                    <input type="button" onclick="display.value+='6'" value="6">
-                    <input type="button" onclick="display.value+='-'" value="-" class="color">
-                </div>
-                <div>
-                    <input type="button" onclick="display.value+='1'" value="1">
-                    <input type="button" onclick="display.value+='2'" value="2">
-                    <input type="button" onclick="display.value+='3'" value="3">
-                    <input type="button" onclick="display.value+='+'" value="+" class="color">
-                </div>
-                <div>
-                    <input type="button" onclick="display.value+='0'" value="0">
-                    <input type="button" onclick="display.value+='.'" value="." class="color">
-                    <input type="button" onclick="display.value=eval(display.value)" value="=" class="equal color">
-                </div>
-            </form>
+            <input type="text" name="screen" id="screen">
+            <table>
+                <tr>
+                    <td><button class="color">(</button></td>
+                    <td><button class="color">)</button></td>
+                    <td><button class="color"> C </button></td>
+                    <td><button class="color">%</button></td>
+                </tr>
+                <tr>
+                    <td><button> 7 </button></td>
+                    <td><button> 8 </button></td>
+                    <td><button> 9 </button></td>
+                    <td><button class="color"> * </button></td>
+                </tr>
+                <tr>
+                    <td><button> 4 </button></td>
+                    <td><button> 5 </button></td>
+                    <td><button> 6 </button></td>
+                    <td><button class="color"> - </button></td>
+                </tr>
+                <tr>
+                    <td><button> 1 </button></td>
+                    <td><button> 2 </button></td>
+                    <td><button> 3 </button></td>
+                    <td><button class="color"> + </button></td>
+                </tr>
+                <tr>
+                    <td><button> 0 </button></td>
+                    <td><button class="color"> . </button></td>
+                    <td><button class="color"> / </button></td>
+                    <td><button class="color"> = </button></td>
+                </tr>
+            </table>
         </div>
     </div>
 </body>
+<script src="calc.js"></script>
 </html>
 
+style.css
+
+.container {
+    text-align: center;
+    margin-top:23px
+}
+
+table {
+    margin: auto;
+}
+
+input {
+    text-align: right;
+    border-radius: 21px;
+    border: 2px solid cyan;
+    padding: 20px;
+    background: transparent;
+    font-size: 40px;
+    height: 60px;
+    width: 290px;
+    color: white;
+}
+
+button {
+    border-radius: 20px;
+    border: 0;
+    outline: 0;
+    box-shadow: -8px -8px 15px rgba(180, 180, 180, 0.1),  5px 5px 15px rgba(0, 0, 0, 0.2);
+    font-size: 20px;
+    background: transparent;
+    color: white;
+    width: 60px;
+    height: 60px;
+    margin: 6px;
+    cursor: pointer;
+}
+
+.calculator { 
+    border: none;
+    background-color: #3a4452;
+    padding: 30px;
+    border-radius: 30px;
+    display: inline-block;
+    
+}
+
+h1 {
+    font-size: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.color {
+    color: cyan;
+}
+
+calc.js
+
+let screen = document.getElementById('screen');
+buttons = document.querySelectorAll('button');
+let screenValue = '';
+for (item of buttons) {
+    item.addEventListener('click', (e) => {
+        buttonText = e.target.innerText;
+        console.log('Button text is ', buttonText);
+        if (buttonText == 'X') {
+            buttonText = '*';
+            screenValue += buttonText;
+            screen.value = screenValue;
+        }
+        else if (buttonText == 'C') {
+            screenValue = "";
+            screen.value = screenValue;
+        }
+        else if (buttonText == '=') {
+            screen.value = eval(screenValue);
+        }
+        else {
+            screenValue += buttonText;
+            screen.value = screenValue;
+        }
+    })
+}
 
 ```
 ## OUTPUT:
 
-![Alt text](<Screenshot 2023-12-13 190232.png>)
+![Alt text](<Screenshot 2023-12-18 200730.png>)
 
 ## RESULT:
 The program for designing a standard calculator using HTML and CSS is executed successfully.
